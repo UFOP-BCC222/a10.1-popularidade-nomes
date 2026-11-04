@@ -30,7 +30,7 @@ Emma 22532
 Madison 19986
 ...
 
-````
+```
 
 ---
 
@@ -66,7 +66,7 @@ Nome: Justice
 Justice classificado na posição 456 entre garotas com 655 registros
 Justice classificado na posição 401 entre garotos com 653 registros
 Nome: 
-````
+```
 
 **Exemplo 2:**
 
@@ -101,19 +101,71 @@ cabal run popularidade-nomes
 
 Um ciclo de consulta termina quando o usuário pressiona Enter em uma linha vazia. Os testes Hspec fornecidos verificam parte dos requisitos; o professor pode utilizar casos adicionais na avaliação.
 
-## Entrega no GitHub
+## Desenvolvimento, entrega e avaliação no GitHub
 
-Esta atividade será distribuída por **Classroom 50** a partir de um repositório template privado na organização `UFOP-BCC222`. Não crie um repositório público nem copie uma solução de referência para o repositório do aluno.
+Nesta aula, **não será utilizado o Classroom 50**. Cada aluno criará um
+**repositório próprio e privado** a partir do template público fornecido
+pelo professor. O template original pertence à organização `UFOP-BCC222`,
+mas os repositórios individuais serão criados nas contas dos alunos.
 
-Depois de implementar e testar o programa, faça o envio de suas alterações na branch `main`:
+### 1. Criar seu repositório a partir do template
+
+1. Acesse <https://github.com/UFOP-BCC222/a10.1-popularidade-nomes>.
+2. Clique em **Use this template → Create a new repository**.
+3. Escolha **Owner: sua conta pessoal**; nome: `a10.1-popularidade-nomes`.
+4. Selecione **Private** e não marque **Include all branches**.
+5. Clique em **Create repository**.
+
+**Atenção:** não basta clonar o repositório da organização e executar
+`git push`: a organização não concedeu aos alunos permissão para publicar
+alterações nele. O clone deve ser feito **a partir de seu novo repositório
+pessoal**, criado no passo anterior.
+
+### 2. Clonar e trabalhar localmente
+
+Copie a URL HTTPS do **seu próprio repositório** e execute:
+
+```bash
+git clone https://github.com/SEU-USUARIO/a10.1-popularidade-nomes.git
+cd a10.1-popularidade-nomes
+cabal build
+cabal test --test-show-details=direct
+cabal run popularidade-nomes
+```
+
+Se o Git solicitar autenticação, utilize Git Credential Manager ou
+`gh auth login`, conforme o guia da disciplina. A senha de sua conta GitHub
+não funciona como senha Git via HTTPS; nunca compartilhe tokens pessoais.
+
+### 3. Enviar e conferir
 
 ```bash
 git status
 git add src/Popularidade.hs
 git commit -m "Implementa consulta de popularidade de nomes"
-git push
+git push origin main
 ```
 
-**Prazo regular:** até o final da aula de 4 de novembro de 2026 (100 minutos).
+Consulte a aba **Actions** do seu repositório e o resumo dos testes Hspec.
+Corrija eventuais erros e faça novos `commit`/`push` quando necessário.
+O projeto contém um workflow que executa os testes e informa uma pontuação
+formativa por grupos; a nota oficial também poderá considerar revisão do
+professor.
 
-**Extensão sem penalização:** até **23h59 do mesmo dia**, horário de Brasília. A confirmação da entrega será feita pelo repositório individual criado por meio do Classroom 50.
+### 4. Dar acesso ao professor e identificar sua entrega
+
+No **seu repositório privado**, abra **Settings → Collaborators → Add people**
+e convide o usuário GitHub **`romildo`**. O convite deve ser aceito para
+que o professor tenha acesso ao conteúdo e às execuções de Actions.
+
+Envie a **URL do seu repositório pessoal** pelo canal indicado em aula,
+junto com sua identificação acadêmica. Não envie somente o link do
+template da organização.
+
+**Prazo regular:** 4 de novembro de 2026, às **23h59** (horário de Brasília).
+**Atrasos:** penalização linear de **10% da nota por dia de atraso**,
+calculada posteriormente na planilha de notas. Registros de commit e
+`push` serão utilizados na verificação do horário de entrega.
+
+A avaliação automática é um auxílio ao desenvolvimento. Os alunos não
+devem modificar os arquivos de testes e de configuração da avaliação.
